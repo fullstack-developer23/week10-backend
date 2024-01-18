@@ -4,7 +4,7 @@ const express = require("express");
 
 const userRouter = require("./user/routes")
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5001;
 
 const User = require("./user/model");
 // const controllers = require("./user/controllers");
@@ -20,7 +20,7 @@ app.get("/healthy", (req, res) => {
 });
 
 const syncTables = async () => {
-    User.sync();
+   await User.sync();
 }
 
 app.listen(port, () =>{

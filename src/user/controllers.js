@@ -29,7 +29,19 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+const loginUser = async (req, res) => {
+    try{
+        console.log("Hello ", req.user);
+        res.status(201).json({ message: "login successful", user: req.user})
+    }
+    catch (error)
+    {
+        res.status(500).json({ error: error, message: error.message });
+    }
+}
+
 module.exports = {
     signUpUser: signUpUser,
     getAllUsers: getAllUsers,
+    loginUser: loginUser,
 };
